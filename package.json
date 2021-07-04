@@ -1,0 +1,12 @@
+{
+  "name": "binance-p2p-scanner",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "enquirer": "^2.3.6",
+    "node-notifier": "^9.0.0",
+    "ora": "^5.3.0",
+    "request": "^2.88.2"
+  }
+}
