@@ -2,55 +2,17 @@ const request = require('request');
 const {Select} = require('enquirer');
 const notifier = require('node-notifier');
 const ora = require('ora');
+const {
+  PAYMENT,
+  ASSET,
+  TRADE_TYPE,
+  P2P_ENDPOINT,
+  BLACKLISTED_USERS,
+} = require('./constants');
 
 const TIMEOUT_SECONDS = 15;
 
 const spinner = ora();
-
-const PAYMENT = {
-  TRANSFERWISE: 'Transferwise',
-  PAYPAL: 'Paypal',
-};
-
-const ASSET = {
-  USDT: 'USDT',
-  BUSD: 'BUSD',
-};
-
-const TRADE_TYPE = {
-  BUY: 'BUY',
-  SELL: 'SELL',
-};
-
-const P2P_ENDPOINT =
-  'https://c2c.binance.com/gateway-api/v2/public/c2c/adv/search';
-
-const BLACKLISTED_USERS = [
-  'ADA',
-  'dineroenlineayoutube',
-  'equipomiguel',
-  'criptoexchange',
-  'MS Investments',
-  'MV INVESTMENTS',
-  'GLOBALCAMBIOS',
-  'chanel777',
-  'CR7cripto',
-  'Fifacripto',
-  'coiners',
-  'Dala-excha',
-  'Ferang',
-  'anma',
-  'Rapido y seguro',
-  'Tu mejor opción',
-  'easp',
-  'valenciajdavid',
-  'E5498',
-  'JeffMacharty',
-  'tops',
-  'JuanRe-BTC',
-  'sag93',
-  'Business Colombia',
-].map((s) => s.toLowerCase());
 
 const promptPayment = new Select({
   message: 'Select payment type',
