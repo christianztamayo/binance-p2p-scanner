@@ -68,6 +68,7 @@ const init = (paymentType, assetType, tradeType) => {
       }
 
       let key = 0;
+      // eslint-disable-next-line no-constant-condition
       while (true) {
         const merchant = json.data[key].merchant.nickName;
         const isBlacklisted = BLACKLISTED_USERS.includes(
