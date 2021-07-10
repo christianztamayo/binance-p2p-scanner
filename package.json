@@ -2,11 +2,35 @@
   "name": "binance-p2p-scanner",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": ">=10"
+  },
   "license": "MIT",
   "dependencies": {
     "enquirer": "^2.3.6",
     "node-notifier": "^9.0.0",
     "ora": "^5.3.0",
     "request": "^2.88.2"
-  }
+  },
+  "description": "Polls for the best deal on Binance P2P",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christianztamayo/binance-p2p-scanner.git"
+  },
+  "keywords": [
+    "binance",
+    "blockchain",
+    "cli",
+    "crypto",
+    "cryptocurrency",
+    "p2p"
+  ],
+  "author": "Christian Z. Tamayo <christianztamayo@gmail.com> (https://christianztamayo.com)",
+  "bugs": {
+    "url": "https://github.com/christianztamayo/binance-p2p-scanner/issues"
+  },
+  "homepage": "https://github.com/christianztamayo/binance-p2p-scanner#readme"
 }
