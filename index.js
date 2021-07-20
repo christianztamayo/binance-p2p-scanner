@@ -52,7 +52,8 @@ const init = (paymentType, assetType, tradeType) => {
 
     request(options, (_, r) => {
       if (!r) {
-        return refetch();
+        refetch();
+        return;
       }
 
       let json = r.toJSON();
@@ -64,7 +65,8 @@ const init = (paymentType, assetType, tradeType) => {
       }
 
       if (!json.data || !json.data[0]) {
-        return refetch();
+        refetch();
+        return;
       }
 
       let key = 0;
@@ -91,7 +93,7 @@ const init = (paymentType, assetType, tradeType) => {
         }
       }
 
-      let newPrice = Number(json.data[key].advDetail.price);
+      const newPrice = Number(json.data[key].advDetail.price);
       if (newPrice !== prevPrice) {
         const now = new Date().toLocaleTimeString();
         spinner.clear();
@@ -109,9 +111,9 @@ const init = (paymentType, assetType, tradeType) => {
       counter++;
 
       // Notify if new price is low
-      const buyCondition = isBuying && prevPrice > newPrice && 1.01 > newPrice;
+      const buyCondition = isBuying && prevPrice > newPrice && newPrice < 1.01;
       const sellCondition =
-        !isBuying && prevPrice < newPrice && 1.09 < newPrice;
+        !isBuying && prevPrice < newPrice && newPrice < 1.09;
 
       if (prevPrice && (buyCondition || sellCondition)) {
         notifier.notify({
