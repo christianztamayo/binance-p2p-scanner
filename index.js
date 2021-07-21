@@ -36,11 +36,15 @@ const init = (paymentType, assetType, tradeType) => {
   const options = {
     url: P2P_ENDPOINT,
     method: 'POST',
-    headers: {
-      'user-agent': 'Chrome/88.0.4324.150',
-      'content-type': 'application/json',
-    },
-    body: `{"page":1,"rows":10,"payTypeList":["${paymentType}"],"asset":"${assetType}","tradeType":"${tradeType}","fiat":"USD"}`,
+    headers: {'content-type': 'application/json'},
+    body: JSON.stringify({
+      page: 1,
+      rows: 10,
+      payTypeList: [paymentType],
+      asset: assetType,
+      tradeType,
+      fiat: 'USD',
+    }),
   };
 
   let prevPrice;
