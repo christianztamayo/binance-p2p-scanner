@@ -1,9 +1,18 @@
 const prompts = require('./lib/prompts');
 const polling = require('./lib/polling');
+const splash = require('./lib/splash');
 
-// Start prompt
-prompts().then((response) => {
-  const {paymentType, assetType, tradeType} = response;
-  // Start polling
-  return polling(paymentType, assetType, tradeType);
-});
+async function main() {
+  // Show splash
+  await splash();
+  try {
+    // Start prompt
+    const {paymentType, assetType, tradeType} = await prompts();
+    // Start polling
+    polling(paymentType, assetType, tradeType);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+main();
