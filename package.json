@@ -24,8 +24,10 @@
   },
   "description": "Polls for the best deal on Binance P2P",
   "scripts": {
+    "start": "node .",
     "lint": "eslint . --ext .js --ignore-path .gitignore",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "repository": {
     "type": "git",
