@@ -1,3 +1,4 @@
+const config = require('./lib/config');
 const prompts = require('./lib/prompts');
 const polling = require('./lib/polling');
 const splash = require('./lib/splash');
@@ -7,9 +8,12 @@ async function main() {
   await splash();
   try {
     // Start prompt
-    const {paymentType, assetType, tradeType} = await prompts();
+    const appConfig = config();
+    const response = await prompts(appConfig.get());
+    appConfig.sync(response);
+
     // Start polling
-    polling(paymentType, assetType, tradeType);
+    polling(response);
   } catch (error) {
     console.error(error);
   }
