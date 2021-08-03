@@ -5,6 +5,7 @@ const splash = require('./lib/splash');
 
 async function main() {
   // Show splash
+  console.clear();
   await splash();
   try {
     // Start prompt
