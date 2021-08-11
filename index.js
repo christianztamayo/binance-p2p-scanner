@@ -6,7 +6,7 @@ const splash = require('./lib/splash');
 async function main() {
   // Show splash
   console.clear();
-  await splash();
+  console.log(splash);
   try {
     // Start prompt
     const appConfig = config();
